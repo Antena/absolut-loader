@@ -1,15 +1,15 @@
 # absolut-loader
 
-Webpack loader https://github.com/deepsweet/baggage-loader, to be used as a pre-loader in conjunction with https://github.com/WearyMonkey/ngtemplate-loader.
+Webpack loader (inpired by [baggage-loader](https://github.com/deepsweet/baggage-loader)), to be used as a pre-loader in conjunction with [ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader).
 
-ngtemplate-loader pre-loads the AngularJS template cache with required template files. This loader forces you to add those requires outside angular code definition, because that would operate only after angular bootstraps.
+[ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader) pre-loads the AngularJS template cache with required template files. This loader forces you to add those requires outside angular code definition, because that would operate only after angular bootstraps.
 
-See https://github.com/WearyMonkey/ngtemplate-loader#beware-of-requiring-from-the-directive-definition
+See [Beware of requiring from the directive definition](https://github.com/WearyMonkey/ngtemplate-loader#beware-of-requiring-from-the-directive-definition).
 
 That is where baggage-loader comes in: it runs as a pre-loader, and runs a first pass on your angular code.
 The objective is to allow you to put your requires inside your angular code, by preprending your source code with the same require.
 
-The problem with baggage-loader, is that it takes the file path as a configuration for injecting.
+The problem with `baggage-loader`, is that it takes the file path as a configuration for injecting.
 
 For example:
 
@@ -50,7 +50,7 @@ components/
 
 Where component #3 has two flavours/variations which share a controller and some utility code, but have different directive definitions and different templates.
 
-And the following webpack.config.js
+And the following `webpack.config.js`
 
 ```javascript
 preLoaders: [
