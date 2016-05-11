@@ -1,0 +1,38 @@
+{
+  "name": "absolut-loader",
+  "version": "0.0.0",
+  "description": "Webpack loader to automatically require any resources before angular code definition",
+  "private": true,
+  "keywords": [
+    "webpack",
+    "loader",
+    "preloader",
+    "templateCache",
+    "require"
+  ],
+  "homepage": "https://github.com/deepsweet/baggage-loader",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deepsweet/baggage-loader.git"
+  },
+  "author": {
+    "name": "Denise Fernandez",
+    "email": "denise@antena.co",
+    "url": "https://github.com/Antena"
+  },
+  "main": "index.js",
+  "peerDependencies": {
+    "webpack": "1.x.x"
+  },
+  "devDependencies": {
+    "eslint": "^0.8.2",
+    "jscs": "^1.6.2"
+  },
+  "scripts": {
+    "lint": "eslint index.js && jscs index.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "UNLICENSED"
+}
