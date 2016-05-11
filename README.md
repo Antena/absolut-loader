@@ -75,6 +75,9 @@ require('./[something].html')
 
 and check if that file actually exists in that directory. If so, it continues to prepend the js source with require just as baggage-loader does.
 
+### Note
+This loader does not currently support varible assignation or source maps, as `baggage-loader` does. 
+
 ### Full example
 
 Given the same file structure as the example above, you add a pre-loader that targets all js files within components directory, but without passing any query params to `absolut`:
