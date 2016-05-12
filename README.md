@@ -133,4 +133,4 @@ This will be then picked by `ngannotate-loader` in the next phase, which registe
 	module.exports = path;
 
 /***/ },
-```javascript
+```
