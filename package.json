@@ -19,6 +19,10 @@
     "email": "denise@antena.co",
     "url": "https://github.com/Antena"
   },
+  "maintainers": [
+    "Denise Fernandez <denise@antena.co>",
+    "Belén Curcio <curciobelen@gmail.com>"
+  ],
   "main": "index.js",
   "peerDependencies": {
     "webpack": "1.x.x"
