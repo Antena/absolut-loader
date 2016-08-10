@@ -20,30 +20,40 @@ module.exports = function(source, sourceMap) {
     var inject = '';
 
     var passes = (/require\('\.\/(.*)\.html'\)/).test(source);
-    
-    if(passes) {
 
+    if (passes) {
         inject = '\n/* Injected by absolut-loader */\n';
 
-        var extractFileName = /require\('\.\/(?=(.*.html))/
+        // RegExp that will match every .html file
+        var match = /require\('\.\/(\S*\.html)\'\)/g;
 
-        var match = extractFileName.exec(source);
-        var baggageFile = match[1];
+        // Result after match
+        var result = [];
 
-        try {
-            // check if absoluted from srcDirpath + baggageFile path exists
-            var resolve = path.resolve(srcDirpath, baggageFile);
-            
-            var stats = fs.statSync(resolve);
+        // Array of html filenames
+        var baggageFiles = [];
 
-            if (stats.isFile()) {
-                // and require
-                inject += 'require(\'./' + baggageFile + '\');\n';
-                inject += '\n';
-            }
-        } catch (e) {
-            console.log("An error occurred while trying to resolve a file path:\n", e); //TODO (denise) remove log
+        while((result = match.exec(source)) !== null) {
+            baggageFiles.push(result[1]);
         }
+
+        baggageFiles.map(function(baggageFile) {
+            try {
+                // check if absoluted from srcDirpath + baggageFile path exists
+                var resolve = path.resolve(srcDirpath, baggageFile);
+
+                var stats = fs.statSync(resolve);
+
+                if (stats.isFile()) {
+                    // and require
+                    inject += 'require(\'./' + baggageFile + '\');\n';
+                    inject += '\n';
+                }
+            } catch (e) {
+                console.log("An error occurred while trying to resolve a file path:\n", e); //TODO (denise) remove log
+            }
+        });
+
     }
 
     return inject + source;
