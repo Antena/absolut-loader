@@ -79,7 +79,7 @@ This pre-loader will look into the actual source of the specified js files, and 
 require('./[something].html')
 ```
 
-and *check if that file actually exists in that directory*. If so, it continues to prepend the js source with require just as baggage-loader does.
+and **check if that file actually exists in that directory**. If so, it continues to prepend the js source with require just as baggage-loader does.
 
 ### Note
 This loader does not currently support varible assignation or source maps, as `baggage-loader` does. 
@@ -122,7 +122,7 @@ The pre-loader will check that a file `component-3-variation1.html` exists in th
 require('./component-3-variation1.html');
 ```
 
-This will be then picked by `ngannotate-loader` in the next phase, which registers its contents in angular's templateCache, using the file's full path as a key, so to avoid possible collisions within a function, and replaces the original require by this function.
+This will be then picked by `ngtemplate-loader` in the next phase, which registers its contents in angular's templateCache, using the file's full path as a key, so to avoid possible collisions within a function, and replaces the original require by this function.
 
 ```javascript
 /* Injected by absolut-loader */
