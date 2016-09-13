@@ -2,12 +2,16 @@
 
 Webpack loader (inpired by [baggage-loader](https://github.com/deepsweet/baggage-loader)), to be used as a pre-loader in conjunction with [ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader).
 
-[ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader) pre-loads the AngularJS template cache with required template files. This loader forces you to add those requires outside angular code definition, because that would operate only after angular bootstraps.
+## What's ngtemplate-loader for?
+
+[ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader) pre-loads the AngularJS template cache with required template files (i.e. `require('./some-template.html')`). This loader forces you to add those requires outside angular code definition, because otherwise, those requires would only be evaluated after angular bootstraps, which is too late.
 
 See [Beware of requiring from the directive definition](https://github.com/WearyMonkey/ngtemplate-loader#beware-of-requiring-from-the-directive-definition).
 
-That is where baggage-loader comes in: it runs as a pre-loader, and runs a first pass on your angular code.
-The objective is to allow you to put your requires inside your angular code, by preprending your source code with the same require.
+## What's baggage-loader for?
+
+This is where baggage-loader comes in: it runs as a pre-loader, and runs a first pass on your angular code.
+The objective is to allow you to put your requires inside your angular code, by finding these and then preprending your source code with the same require.
 
 The problem with `baggage-loader`, is that it takes the file path as a configuration for injecting.
 
@@ -65,6 +69,8 @@ You would target most html files, except for this one, which would not be possib
 components/component-3/component-3-variation1.html
 ```
 
+## Why absolut-loader?
+
 This is where `absolut-loader` comes into play:
 
 This pre-loader will look into the actual source of the specified js files, and look for the following pattern:
@@ -73,7 +79,7 @@ This pre-loader will look into the actual source of the specified js files, and 
 require('./[something].html')
 ```
 
-and check if that file actually exists in that directory. If so, it continues to prepend the js source with require just as baggage-loader does.
+and *check if that file actually exists in that directory*. If so, it continues to prepend the js source with require just as baggage-loader does.
 
 ### Note
 This loader does not currently support varible assignation or source maps, as `baggage-loader` does. 
