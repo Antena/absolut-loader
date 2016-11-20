@@ -2,9 +2,11 @@
 
 Webpack loader (inpired by [baggage-loader](https://github.com/deepsweet/baggage-loader)), to be used as a pre-loader in conjunction with [ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader).
 
+More information about how webpack loaders and pre-loaders work [here](https://webpack.github.io/docs/using-loaders.html). 
+
 ## What's ngtemplate-loader for?
 
-[ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader) pre-loads the AngularJS template cache with required template files (i.e. `require('./some-template.html')`). This loader forces you to add those requires outside angular code definition, because otherwise, those requires would only be evaluated after angular bootstraps, which is too late.
+[ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader) pre-loads the [AngularJS template cache](https://docs.angularjs.org/api/ng/service/$templateCache) with required template files (i.e. `require('./some-template.html')`). This loader forces you to add those requires outside angular code definition, because otherwise, those requires would only be evaluated after angular bootstraps, which is too late.
 
 See [Beware of requiring from the directive definition](https://github.com/WearyMonkey/ngtemplate-loader#beware-of-requiring-from-the-directive-definition).
 
@@ -13,7 +15,7 @@ See [Beware of requiring from the directive definition](https://github.com/Weary
 This is where baggage-loader comes in: it runs as a pre-loader, and runs a first pass on your angular code.
 The objective is to allow you to put your requires inside your angular code, by finding these and then preprending your source code with the same require.
 
-The problem with `baggage-loader`, is that it takes the file path as a configuration for injecting.
+The **problem** with `baggage-loader`, is that it **takes the file path as a configuration** for injecting, instead of just **resolving the path from the required template path dynamically**.
 
 For example:
 
@@ -68,6 +70,35 @@ You would target most html files, except for this one, which would not be possib
 ```
 components/component-3/component-3-variation1.html
 ```
+
+Another common scenario in which this would be a problem, is when a directive requires, not only it's template, but also a template for a modal or popover. For example:
+```javascript
+'use strict';
+
+// @ngInject
+module.exports = function() {
+	return {
+		restrict: 'EA',
+		scope: {
+			config: '='
+		},
+		templateUrl: require('./component-2.html'),				// directive template
+		controller: 'Component2Controller',
+		link: function() {
+			var modalInstance = $uibModal.open({
+				animation: true,
+				templateUrl: require('./some-content.html'),	// modal template
+				backdrop: 'static',
+				size: 'sm',
+				keyboard: true,
+				scope: modalScope
+			});
+		}
+	};
+};
+
+```
+
 
 ## Why absolut-loader?
 
