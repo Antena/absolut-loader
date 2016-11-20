@@ -21,18 +21,23 @@
   },
   "maintainers": [
     "Denise Fernandez <denise@antena.co>",
-    "Belén Curcio <curciobelen@gmail.com>"
+    "Gonzalo Bellver <gonzalo@antena.co>"
   ],
   "main": "index.js",
   "peerDependencies": {
     "webpack": "1.x.x"
   },
   "devDependencies": {
-    "eslint": "^0.8.2",
-    "jscs": "^1.6.2"
+    "jscs": "^1.6.2",
+    "jscs-stylish": "^0.3.1",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "mocha": "^3.0.1",
+    "should": "^10.0.0"
   },
   "scripts": {
-    "lint": "eslint index.js && jscs index.js"
+    "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
+    "test": "mocha -R spec"
   },
   "engines": {
     "node": ">=0.10.0"

@@ -1,0 +1,15 @@
+{
+	"node": true,
+	"bitwise": true,
+	"browser": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": true,
+	"maxerr": 50,
+	"noarg": true,
+	"noempty": true,
+	"strict": true,
+	"undef": true,
+	"unused": "vars",
+	"smarttabs": true
+}
