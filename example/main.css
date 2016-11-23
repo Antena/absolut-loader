@@ -1,0 +1,41 @@
+body {
+	background-color: #160f19;
+	color: #dadada;
+}
+
+.absolut-loader-demo .demo-container {
+	border-bottom: 1px solid #dadada;
+	margin-bottom: 10px;
+	padding: 30px;
+}
+
+.absolut-loader-demo .demo-code-title {
+	color: #09edef;
+}
+
+.absolut-loader-demo .demo-title {
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	text-align: center;
+	color: #edf865;
+}
+
+.absolut-loader-demo .component-one,
+.absolut-loader-demo .component-two {
+	padding: 10px;
+}
+
+.absolut-loader-demo .component-content {
+	padding: 10px;
+}
+
+.absolut-loader-demo .component-one {
+	border: 3px dashed #55ff84;
+}
+
+.absolut-loader-demo .component-two {
+	border: 3px dashed pink;
+}
+
+input {
+	color: #7059e0;
+}

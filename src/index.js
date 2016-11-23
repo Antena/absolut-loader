@@ -38,7 +38,7 @@ module.exports = function(source, sourceMap) {
 					inject += '\n';
 				}
 			} catch (e) {
-				console.error("An error occurred while trying to resolve a file path:\n", e);
+				console.error("[absolut-loader] An error occurred while trying to resolve a file path:\n", e);
 			}
 		});
 	}

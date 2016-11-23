@@ -1,0 +1,22 @@
+{
+  "name": "absolut-loader-demo",
+  "version": "0.1.0",
+  "description": "Demo usage of absolut-loader.",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "angular": "~1.4.x"
+  },
+  "devDependencies": {
+    "absolut-loader": "~0.0.3",
+    "html-loader": "^0.4.3",
+    "ng-annotate-webpack-plugin": "^0.1.2",
+    "ngtemplate-loader": "~1.3.1",
+    "webpack": "^1.12.9"
+  },
+  "engines": {
+    "node": ">=0.10.26"
+  }
+}
