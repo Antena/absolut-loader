@@ -171,3 +171,9 @@ This will be then picked by `ngtemplate-loader` in the next phase, which registe
 
 /***/ },
 ```
+
+## Demo
+
+1. `cd example`
+2. `npm run build`
+3. Open `example/index.html`
