@@ -1,4 +1,11 @@
 # absolut-loader
+[![npm version](https://badge.fury.io/js/absolut-loader.svg)](https://badge.fury.io/js/absolut-loader)
+[![dependencies Status](https://david-dm.org/Antena/absolut-loader/status.svg)](https://david-dm.org/Antena/absolut-loader)
+[![devDependencies Status](https://david-dm.org/Antena/absolut-loader/dev-status.svg)](https://david-dm.org/Antena/absolut-loader?type=dev)
+[![peerDependencies Status](https://david-dm.org/Antena/absolut-loader/peer-status.svg)](https://david-dm.org/Antena/absolut-loader?type=peer)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
+
+[![NPM](https://nodei.co/npm/absolut-loader.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/absolut-loader/)
 
 Webpack loader (inpired by [baggage-loader](https://github.com/deepsweet/baggage-loader)), to be used as a pre-loader in conjunction with [ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader).
 
