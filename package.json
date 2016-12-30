@@ -1,7 +1,7 @@
 {
   "name": "absolut-loader",
   "version": "0.1.0",
-  "description": "Webpack loader to automatically require any resources before angular code definition",
+  "description": "Webpack loader to automatically require any html resources before angular code definition",
   "keywords": [
     "webpack",
     "loader",
@@ -11,7 +11,7 @@
     "baggage",
     "ngtemplate-loader"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "homepage": "https://github.com/Antena/absolut-loader",
   "repository": {
     "type": "git",
