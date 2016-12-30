@@ -11,14 +11,14 @@
     "baggage",
     "ngtemplate-loader"
   ],
-  "license": "MIT",
+  "license": "UNLICENSED",
   "homepage": "https://github.com/Antena/absolut-loader",
   "repository": {
     "type": "git",
     "url": "https://github.com/Antena/absolut-loader"
   },
   "bugs": {
-    "url" : "https://github.com/Antena/absolut-loader/issues"
+    "url": "https://github.com/Antena/absolut-loader/issues"
   },
   "author": {
     "name": "Denise Fernandez",
@@ -35,12 +35,12 @@
     "webpack": "1.x.x"
   },
   "devDependencies": {
-    "jscs": "^1.6.2",
+    "jscs": "^3.0.7",
     "jscs-stylish": "^0.3.1",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
     "mocha": "^3.0.1",
-    "should": "^10.0.0"
+    "should": "^11.1.2"
   },
   "scripts": {
     "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
@@ -48,6 +48,5 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "license": "UNLICENSED"
+  }
 }
