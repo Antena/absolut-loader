@@ -27,6 +27,7 @@
   },
   "maintainers": [
     "Denise Fernandez <denise@antena.co>",
+    "Denise Fernandez <lostie@gmail.com>",
     "Gonzalo Bellver <gonzalo@antena.co>"
   ],
   "main": "src/index.js",
