@@ -11,10 +11,13 @@
     "baggage",
     "ngtemplate-loader"
   ],
-  "homepage": "https://github.com/deepsweet/baggage-loader",
+  "homepage": "https://github.com/Antena/absolut-loader",
   "repository": {
     "type": "git",
-    "url": "git://github.com/deepsweet/baggage-loader.git"
+    "url": "https://github.com/Antena/absolut-loader"
+  },
+  "bugs": {
+    "url" : "https://github.com/Antena/absolut-loader/issues"
   },
   "author": {
     "name": "Denise Fernandez",
