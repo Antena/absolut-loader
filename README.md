@@ -1,9 +1,11 @@
 # absolut-loader
 [![npm version](https://badge.fury.io/js/absolut-loader.svg)](https://badge.fury.io/js/absolut-loader)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
 [![dependencies Status](https://david-dm.org/Antena/absolut-loader/status.svg)](https://david-dm.org/Antena/absolut-loader)
 [![devDependencies Status](https://david-dm.org/Antena/absolut-loader/dev-status.svg)](https://david-dm.org/Antena/absolut-loader?type=dev)
 [![peerDependencies Status](https://david-dm.org/Antena/absolut-loader/peer-status.svg)](https://david-dm.org/Antena/absolut-loader?type=peer)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
+[![bitHound Code](https://www.bithound.io/github/Antena/absolut-loader/badges/code.svg)](https://www.bithound.io/github/Antena/absolut-loader)
+[![bitHound Overall Score](https://www.bithound.io/github/Antena/absolut-loader/badges/score.svg)](https://www.bithound.io/github/Antena/absolut-loader)
 
 [![NPM](https://nodei.co/npm/absolut-loader.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/absolut-loader/)
 
