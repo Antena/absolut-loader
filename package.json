@@ -11,6 +11,7 @@
     "baggage",
     "ngtemplate-loader"
   ],
+  "license": "MIT",
   "homepage": "https://github.com/Antena/absolut-loader",
   "repository": {
     "type": "git",
