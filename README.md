@@ -182,7 +182,7 @@ This will be then picked by `ngtemplate-loader` in the next phase, which registe
 ## Version compatibility
 | absolut-loader | Node.js | Webpack |
 | --- | --- | --- |
-| v0.1.x | v0.10.x | v0.1.x |
+| v0.1.x | v0.10.x | v1.x |
 
 ## Demo
 
