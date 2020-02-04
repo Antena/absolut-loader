@@ -7,7 +7,7 @@
 
 [![NPM](https://nodei.co/npm/absolut-loader.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/absolut-loader/)
 
-Webpack loader (inpired by [baggage-loader](https://github.com/deepsweet/baggage-loader)), to be used as a pre-loader in conjunction with [ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader).
+Webpack v1 loader (inpired by [baggage-loader](https://github.com/deepsweet/baggage-loader)), to be used as a pre-loader in conjunction with [ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader).
 
 More information about how webpack loaders and pre-loaders work [here](https://webpack.github.io/docs/using-loaders.html). 
 
@@ -178,6 +178,11 @@ This will be then picked by `ngtemplate-loader` in the next phase, which registe
 
 /***/ },
 ```
+
+## Version compatibility
+| absolut-loader | Node.js | Webpack |
+| --- | --- | --- |
+| v0.1.x | v0.10.x | v0.1.x |
 
 ## Demo
 
