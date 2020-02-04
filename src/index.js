@@ -1,47 +1,65 @@
 'use strict';
 
-var path = require('path'),
-	fs = require('fs');
+var path = require('path');
+var fs = require('fs');
 
-module.exports = function(source, sourceMap) {
+var REQUIRE_HTML_FILE_PATTERN = /require\('\.\/(.*)\.html'\)/;
+var CAPTURE_REQUIRE_HTML_FILE_PATTERN = /require\('\.\/(\S*\.html)\'\)/g;
+var LOADER_INJECTION_COMMENT = '/* Injected by absolut-loader */';
+
+function findAllRequiredHtmlFilePathsInSource(source) {
+	var result = [];
+	var matches;
+
+	while ((matches = CAPTURE_REQUIRE_HTML_FILE_PATTERN.exec(source)) !== null) {
+		result.push(matches[1]);
+	}
+
+	return result;
+}
+
+// checks if absolute path composed by srcDirPath + htmlFile, exists and is a file
+function requiredFileExists(srcDirPath, htmlFilePath) {
+	return fs.statSync(path.resolve(srcDirPath, htmlFilePath)).isFile();
+}
+
+module.exports = function(source) {
+	var result = source;
 
 	// https://webpack.github.io/docs/how-to-write-a-loader.html#flag-itself-cacheable-if-possible
 	if (this.cacheable) {
 		this.cacheable();
 	}
 
-	var inject = '',
-		srcFilepath = this.resourcePath,
-		srcDirpath = path.dirname(srcFilepath),
-		matchesRequireHtmlPattern = (/require\('\.\/(.*)\.html'\)/).test(source);
+	var linesOfCodeToInject = [];
+	var matchesRequireHtmlPattern = REQUIRE_HTML_FILE_PATTERN.test(source);
 
 	if (matchesRequireHtmlPattern) {
-		inject = '\n/* Injected by absolut-loader */\n';
+		var webpackConfigResourcePath = path.dirname(this.resourcePath);
+		linesOfCodeToInject.push(LOADER_INJECTION_COMMENT);
 
-		var match = /require\('\.\/(\S*\.html)\'\)/g,		// RegExp that will match every .html file
-			result = [],
-			htmlFiles = [];
-
-		while ((result = match.exec(source)) !== null) {
-			htmlFiles.push(result[1]);
-		}
-
-		htmlFiles.map(function(htmlFile) {
+		findAllRequiredHtmlFilePathsInSource(source).forEach(function(htmlFilePath) {
 			try {
-				// check if absolute path composed by srcDirpath + htmlFile, is a file that actually exists
-				var resolve = path.resolve(srcDirpath, htmlFile),
-					stats = fs.statSync(resolve);
-
-				if (stats.isFile()) {
-					// and require
-					inject += 'require(\'./' + htmlFile + '\');\n';
-					inject += '\n';
+				if (requiredFileExists(webpackConfigResourcePath, htmlFilePath)) {
+					linesOfCodeToInject.push('require(\'./' + htmlFilePath + '\');');
 				}
 			} catch (e) {
 				console.error("[absolut-loader] An error occurred while trying to resolve a file path:\n", e);
 			}
 		});
+
+		if (linesOfCodeToInject.length > 0) {
+			if (source.indexOf('use strict') === 1) {
+				var strictDeclaration = source.split('\n')[0];
+				linesOfCodeToInject.unshift(strictDeclaration + '\n');
+				source = source.split(strictDeclaration)[1];
+			} else {
+				linesOfCodeToInject.push('\n');
+			}
+
+			result = linesOfCodeToInject.join('\n') + source;
+		}
 	}
 
-	return inject + source;
+	return result;
 };

@@ -1,5 +1,3 @@
-'use strict';
-
 /* Injected by absolut-loader */
 require('./component-2.html');
 require('./some-content.html');

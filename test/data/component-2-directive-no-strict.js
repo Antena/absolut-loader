@@ -1,9 +1,3 @@
-'use strict';
-
-/* Injected by absolut-loader */
-require('./component-2.html');
-require('./some-content.html');
-
 require('./component2.scss');
 
 // @ngInject

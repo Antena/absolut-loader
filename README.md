@@ -4,8 +4,6 @@
 [![dependencies Status](https://david-dm.org/Antena/absolut-loader/status.svg)](https://david-dm.org/Antena/absolut-loader)
 [![devDependencies Status](https://david-dm.org/Antena/absolut-loader/dev-status.svg)](https://david-dm.org/Antena/absolut-loader?type=dev)
 [![peerDependencies Status](https://david-dm.org/Antena/absolut-loader/peer-status.svg)](https://david-dm.org/Antena/absolut-loader?type=peer)
-[![bitHound Code](https://www.bithound.io/github/Antena/absolut-loader/badges/code.svg)](https://www.bithound.io/github/Antena/absolut-loader)
-[![bitHound Overall Score](https://www.bithound.io/github/Antena/absolut-loader/badges/score.svg)](https://www.bithound.io/github/Antena/absolut-loader)
 
 [![NPM](https://nodei.co/npm/absolut-loader.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/absolut-loader/)
 
@@ -15,14 +13,14 @@ More information about how webpack loaders and pre-loaders work [here](https://w
 
 ## What's ngtemplate-loader for?
 
-[ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader) pre-loads the [AngularJS template cache](https://docs.angularjs.org/api/ng/service/$templateCache) with required template files (i.e. `require('./some-template.html')`). This loader forces you to add those requires outside angular code definition, because otherwise, those requires would only be evaluated after angular bootstraps, which is too late.
+[ngtemplate-loader](https://github.com/WearyMonkey/ngtemplate-loader) pre-loads the [AngularJS template cache](https://docs.angularjs.org/api/ng/service/$templateCache) with required template files (i.e. `require('./some-template.html')`). This loader forces you to add those requires outside AngularJS code definition, because otherwise, those requires would only be evaluated after AngularJS bootstraps, which is too late.
 
 See [Beware of requiring from the directive definition](https://github.com/WearyMonkey/ngtemplate-loader#beware-of-requiring-from-the-directive-definition).
 
 ## What's baggage-loader for?
 
-This is where baggage-loader comes in: it runs as a pre-loader, and runs a first pass on your angular code.
-The objective is to allow you to put your requires inside your angular code, by finding these and then preprending your source code with the same require.
+This is where baggage-loader comes in: it runs as a pre-loader, and runs a first pass on your AngularJS code.
+The objective is to allow you to put your requires inside your AngularJS code, by finding these and then preprending your source code with the same require.
 
 The **problem** with `baggage-loader`, is that it **takes the file path as a configuration** for injecting, instead of just **resolving the path from the required template path dynamically**.
 
@@ -40,7 +38,7 @@ It also allows you to define that file name based on the test file dir or file n
 
 The problem with this approach is that it forces you to name your html files in a certain way, either with a fixed name, based on dir or js file, or a combination of both.
 
-This means it becomes unusable in some scenarios, and also, if you were to rename your template files, changing the require() inside your angular code wouldn't be enough.
+This means it becomes unusable in some scenarios, and also, if you were to rename your template files, changing the require() inside your AngularJS code wouldn't be enough.
 Moreover, you would be injecting requires for files that you are not actually requiring from within your js file.
 
 For example, given the following file structure:
@@ -162,7 +160,7 @@ The pre-loader will check that a file `component-3-variation1.html` exists in th
 require('./component-3-variation1.html');
 ```
 
-This will be then picked by `ngtemplate-loader` in the next phase, which registers its contents in angular's templateCache, using the file's full path as a key, so to avoid possible collisions within a function, and replaces the original require by this function.
+This will be then picked by `ngtemplate-loader` in the next phase, which registers its contents in AngularJS's templateCache, using the file's full path as a key, so to avoid possible collisions within a function, and replaces the original require by this function.
 
 ```javascript
 /* Injected by absolut-loader */
